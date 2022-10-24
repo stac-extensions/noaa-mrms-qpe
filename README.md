@@ -1,14 +1,14 @@
-# Template Extension Specification
+# NOAA MRMS QPE Extension Specification
 
-- **Title:** Template
-- **Identifier:** <https://stac-extensions.github.io/template/v1.0.0/schema.json>
-- **Field Name Prefix:** template
+- **Title:** NOAA MRMS QPE
+- **Identifier:** <https://stac-extensions.github.io/noaa-mrms-qpe/v1.0.0/schema.json>
+- **Field Name Prefix:** noaa_mrms_qpe
 - **Scope:** Item, Collection
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
-- **Owner**: @your-gh-handles @person2
+- **Owner**: @m-mohr
 
-This document explains the Template Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification.
-This is the place to add a short introduction.
+This document explains the NOAA MRMS QPE Extension to the
+[SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification.
 
 - Examples:
   - [Item example](examples/item.json): Shows the basic usage of the extension in a STAC Item
@@ -25,36 +25,11 @@ The fields in the table below can be used in these parts of STAC documents:
 - [x] Assets (for both Collections and Items, incl. Item Asset Definitions in Collections)
 - [ ] Links
 
-| Field Name           | Type                      | Description |
-| -------------------- | ------------------------- | ----------- |
-| template:new_field   | string                    | **REQUIRED**. Describe the required field... |
-| template:xyz         | [XYZ Object](#xyz-object) | Describe the field... |
-| template:another_one | \[number]                 | Describe the field... |
-
-### Additional Field Information
-
-#### template:new_field
-
-This is a much more detailed description of the field `template:new_field`...
-
-### XYZ Object
-
-This is the introduction for the purpose and the content of the XYZ Object...
-
-| Field Name  | Type   | Description |
-| ----------- | ------ | ----------- |
-| x           | number | **REQUIRED**. Describe the required field... |
-| y           | number | **REQUIRED**. Describe the required field... |
-| z           | number | **REQUIRED**. Describe the required field... |
-
-## Relation types
-
-The following types should be used as applicable `rel` types in the
-[Link Object](https://github.com/radiantearth/stac-spec/tree/master/item-spec/item-spec.md#link-object).
-
-| Type                | Description |
-| ------------------- | ----------- |
-| fancy-rel-type      | This link points to a fancy resource. |
+| Field Name           | Type    | Description |
+| -------------------- | ------- | ----------- |
+| noaa_mrms_qpe:pass   | integer | **REQUIRED**. The pass number: `1` = less latency, but less gauges; `2` = more latency, but more gauges. |
+| noaa_mrms_qpe:period | integer | **REQUIRED**. The number of hours of the accumulations. One of: `1`, `3`, `6`, `12`, `24`, `48`, `72` |
+| noaa_mrms_qpe:region | string  | **REQUIRED**. The region of the data. One of: `CONUS` (Continental US), `HAWAII`, `GUAM`, `ALASKA`, `CARIB` (Caribbean Islands) |
 
 ## Contributing
 

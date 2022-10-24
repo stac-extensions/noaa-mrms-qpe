@@ -1,73 +1,174 @@
 {
-  "stac_version": "1.0.0",
-  "stac_extensions": [
-    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/template/v1.0.0/schema.json"
-  ],
   "type": "Collection",
-  "id": "collection",
-  "title": "A title",
-  "description": "A description",
-  "license": "Apache-2.0",
+  "id": "noaa-mrms-qpe-24h-pass2",
+  "stac_version": "1.0.0",
+  "description": "The Multi-Radar Multi-Sensor (MRMS) quantitative precipitation estimation (QPE) product is generated fully automatically from multiple sources to generate seamless, hourly 1 km mosaics over the US.\n\n**Note:** The data for Guam and the Caribbean Islands are [not multi-sensor products](https://vlab.noaa.gov/documents/96675/666999/MS_DomainDiffernces.png) yet.\n\nThis is the 24-hour pass 2 product with more latency (120 min), but more gauges (99 %).",
+  "links": [
+    {
+      "rel": "item",
+      "href": "./item-conus.json",
+      "type": "application/geo+json",
+      "title": "CONUS_MRMS_MultiSensor_QPE_24H_Pass2_00.00_20220702-110000"
+    },
+    {
+      "rel": "item",
+      "href": "./item-guam.json",
+      "type": "application/geo+json",
+      "title": "GUAM_MRMS_MultiSensor_QPE_24H_Pass2_00.00_20220704-140000"
+    },
+    {
+      "rel": "root",
+      "href": "./collection.json",
+      "type": "application/json",
+      "title": "NOAA MRMS QPE 24-hour Pass 2"
+    },
+    {
+      "rel": "license",
+      "href": "https://www.nssl.noaa.gov/projects/mrms/nmq_data_policy_OGCrevised.pdf",
+      "type": "application/pdf",
+      "title": "MRMS Dataset Sharing Policy"
+    },
+    {
+      "rel": "about",
+      "href": "https://mrms.nssl.noaa.gov",
+      "type": "text/html",
+      "title": "MRMS Homepage"
+    },
+    {
+      "rel": "about",
+      "href": "https://vlab.noaa.gov/web/wdtd/-/multi-sensor-qpe-1?selectedFolder=9234881",
+      "type": "text/html",
+      "title": "MRMS QPE Technical Product Guide"
+    },
+    {
+      "rel": "self",
+      "href": "https://raw.githubusercontent.com/stactools-packages/noaa-mrms-qpe/main/examples/collection.json",
+      "type": "application/json"
+    }
+  ],
+  "stac_extensions": [
+    "https://stac-extensions.github.io/noaa-mrms-qpe/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/raster/v1.1.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "cog": {
+      "roles": [
+        "data",
+        "cloud-optimized"
+      ],
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "raster:bands": [
+        {
+          "spatial_resolution": 1000,
+          "unit": "mm",
+          "data_type": "float64"
+        }
+      ],
+      "title": "Processed Cloud-Optimized GeoTiff file"
+    },
+    "grib2": {
+      "roles": [
+        "data",
+        "source"
+      ],
+      "type": "application/wmo-GRIB2",
+      "raster:bands": [
+        {
+          "spatial_resolution": 1000,
+          "unit": "mm",
+          "data_type": "float64"
+        }
+      ],
+      "title": "Original GRIB2 file"
+    }
+  },
+  "title": "NOAA MRMS QPE 24-hour Pass 2",
   "extent": {
     "spatial": {
       "bbox": [
         [
-          172.9,
-          1.3,
-          173,
-          1.4
+          -176.0,
+          9.0,
+          150.0,
+          72.0
+        ],
+        [
+          -130.0,
+          20.0,
+          -60.0,
+          55.0
+        ],
+        [
+          -164.0,
+          15.0,
+          -151.0,
+          26.0
+        ],
+        [
+          140.0,
+          9.0,
+          150.0,
+          18.0
+        ],
+        [
+          -176.0,
+          50.0,
+          -126.0,
+          72.0
+        ],
+        [
+          -90.0,
+          10.0,
+          -60.0,
+          25.0
         ]
       ]
     },
     "temporal": {
       "interval": [
         [
-          "2015-06-23T00:00:00Z",
+          "2022-07-01T00:00:00Z",
           null
         ]
       ]
     }
   },
-  "template:new_field": "test",
-  "template:xyz": {
-    "x": 1,
-    "y": 2,
-    "z": 3
-  },
-  "template:another_one": [
-    1,
-    2,
-    3
+  "license": "proprietary",
+  "keywords": [
+    "NOAA",
+    "MRMS",
+    "QPE",
+    "multi-radar",
+    "multi-sensor",
+    "precipitation",
+    "24-hour",
+    "GRIB2",
+    "COG"
   ],
-  "assets": {
-    "example": {
-      "href": "https://example.com/examples/file.xyz",
-      "template:new_field": "test"
-    }
-  },
-  "item_assets": {
-    "data": {
+  "providers": [
+    {
+      "name": "NOAA National Severe Storms Laboratory",
       "roles": [
-        "data"
+        "producer",
+        "licensor"
       ],
-      "template:new_field": "test"
+      "url": "https://www.nssl.noaa.gov/projects/mrms"
     }
-  },
+  ],
   "summaries": {
-    "datetime": {
-      "minimum": "2015-06-23T00:00:00Z",
-      "maximum": "2019-07-10T13:44:56Z"
-    }
-  },
-  "links": [
-    {
-      "href": "https://example.com/examples/collection.json",
-      "rel": "self"
-    },
-    {
-      "href": "https://example.com/examples/item.json",
-      "rel": "item"
-    }
-  ]
+    "noaa_mrms_qpe:pass": [
+      2
+    ],
+    "noaa_mrms_qpe:period": [
+      24
+    ],
+    "noaa_mrms_qpe:region": [
+      "CONUS",
+      "HAWAII",
+      "GUAM",
+      "ALASKA",
+      "CARIB"
+    ]
+  }
 }
