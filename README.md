@@ -4,7 +4,7 @@
 - **Identifier:** <https://stac-extensions.github.io/noaa-mrms-qpe/v1.0.0/schema.json>
 - **Field Name Prefix:** noaa_mrms_qpe
 - **Scope:** Item, Collection
-- **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
+- **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Pilot
 - **Owner**: @m-mohr
 
 This document explains the NOAA MRMS QPE Extension to the
